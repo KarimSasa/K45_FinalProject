@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly API_URL = 'http://localhost:3000/api';
+  private readonly API_URL = 'http://167.99.123.194/api';
   private tokenKey = 'auth_token';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
 

@@ -19,7 +19,10 @@ const generateSecretKey = () => {
 // Store the generated key
 const secretKey = process.env['JWT_SECRET'] || generateSecretKey();
 
-app.use(cors());
+app.use(cors({
+  origin: ['http://167.99.123.194', 'http://localhost:4200'],
+  credentials: true
+}));
 app.use(express.json());
 
 // MySQL connection pool
