@@ -1,0 +1,80 @@
+@import '../../styles/chart.scss';
+
+// Additional styling specific to summary
+.chart-section {
+  .section-header {
+    position: relative;
+    
+    h2 {
+      background: linear-gradient(45deg, #1a365d, #2563eb);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.2rem;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+    }
+
+    .metadata {
+      .date {
+        background: #f1f5f9;
+        padding: 0.3rem 0.8rem;
+        border-radius: 16px;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  .content-wrapper {
+    .chart-description {
+      position: relative;
+      border-left: 4px solid #323439;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateX(5px);
+      }
+
+      strong {
+        color: #1a365d;
+        font-weight: 600;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(37, 99, 235, 0.03), transparent);
+        z-index: -1;
+        border-radius: 8px;
+      }
+    }
+
+    .source-citation {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      
+      a {
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          bottom: -2px;
+          left: 0;
+          background-color: #2563eb;
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+        }
+
+        &:hover::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
