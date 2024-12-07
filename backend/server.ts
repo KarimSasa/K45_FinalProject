@@ -171,6 +171,9 @@ app.post('/api/ai-adoption', authenticateToken, async (req, res) => {
   }
 });
 
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'API is working' });
+});
 
 app.get('/api/dashboard-content', authenticateToken, async (req, res) => {
   const content = {
