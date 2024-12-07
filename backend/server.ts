@@ -51,7 +51,7 @@ interface AdoptionData extends RowDataPacket {
 }
 
 // Routes
-app.post('/api/login', async (req, res) => {
+app.post('/login', async (req, res) => {
   const { username, password } = req.body;
   
   if (username.toLowerCase() === 'karim' && password.toLowerCase() === 'karim') {
@@ -106,7 +106,7 @@ function authenticateToken(req: any, res: any, next: any) {
   });
 }
 
-app.get('/api/ai-innovations', authenticateToken, async (req, res) => {
+app.get('/ai-innovations', authenticateToken, async (req, res) => {
   try {
     const [rows] = await pool.query<MarketData[]>('SELECT * FROM market_data ORDER BY year');
     const data = {
@@ -124,7 +124,7 @@ app.get('/api/ai-innovations', authenticateToken, async (req, res) => {
   }
 });
 
-app.get('/api/ai-adoption', authenticateToken, async (req, res) => {
+app.get('/ai-adoption', authenticateToken, async (req, res) => {
   try {
     const [rows] = await pool.query<AdoptionData[]>('SELECT * FROM adoption_data ORDER BY year');
     const data = {
@@ -143,7 +143,7 @@ app.get('/api/ai-adoption', authenticateToken, async (req, res) => {
   }
 });
 
-app.post('/api/ai-innovations', authenticateToken, async (req, res) => {
+app.post('/ai-innovations', authenticateToken, async (req, res) => {
   try {
     const { label, value, year, market_type, color } = req.body;
     const [result] = await pool.query(
@@ -157,7 +157,7 @@ app.post('/api/ai-innovations', authenticateToken, async (req, res) => {
   }
 });
 
-app.post('/api/ai-adoption', authenticateToken, async (req, res) => {
+app.post('/ai-adoption', authenticateToken, async (req, res) => {
   try {
     const { year, percentage } = req.body;
     const [result] = await pool.query(
@@ -171,11 +171,11 @@ app.post('/api/ai-adoption', authenticateToken, async (req, res) => {
   }
 });
 
-app.get('/api/test', (req, res) => {
+app.get('/test', (req, res) => {
   res.json({ message: 'API is working' });
 });
 
-app.get('/api/dashboard-content', authenticateToken, async (req, res) => {
+app.get('/dashboard-content', authenticateToken, async (req, res) => {
   const content = {
     summary: `The convergence of edge AI and generative AI represents a transformative shift in how we process and utilize artificial intelligence. Edge AI brings computation closer to data sources, while generative AI creates new content and insights. This synergy enables real-time processing, enhanced privacy, and personalized experiences without constant cloud connectivity. Recent breakthroughs in AI model optimization have made it possible to run sophisticated language models on edge devices, opening new possibilities for industries ranging from healthcare to manufacturing.
   
