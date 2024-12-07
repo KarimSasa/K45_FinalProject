@@ -183,7 +183,7 @@ app.get('/dashboard-content', authenticateToken, async (req, res) => {
 
     Furthermore, the market for edge AI and generative AI solutions is experiencing remarkable growth. Current projections indicate that the global edge AI market, valued at approximately USD 21 billion today, is expected to exceed USD 140 billion by 2034. Similarly, the generative AI market is anticipated to reach USD 356 billion by 2030, marking a significant increase from its current USD 36 billion valuation. This growth is driven by increasing demand for real-time AI capabilities and the development of more efficient, edge-optimized AI models.`,
     sourceUrl: 'https://www.wevolver.com/article/chapter-ii-innovations-and-advancements-in-generative-ai-at-the-edge',
-    techStack: `This application is built using Angular 19 with standalone components and a Node.js/Express backend. The architecture leverages TypeScript throughout, MySQL for data persistence, Chart.js for data visualization, and implements JWT with crypto-based encryption for secure authentication. The frontend follows WCAG accessibility guidelines and features responsive design with SCSS styling.`
+    techStack: `This application is built using Angular 19 with standalone components and a Node.js/Express backend on port 3000. The architecture leverages TypeScript throughout, MySQL for data persistence, Chart.js for data visualization, and implements JWT with crypto-based encryption for secure authentication. The frontend uses NGInx on port 80. Also, the frotned follows WCAG accessibility guidelines and features responsive design with SCSS styling.`
   };
   res.json(content);
 });
